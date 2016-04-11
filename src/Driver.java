@@ -7,6 +7,8 @@ public class Driver {
 	static int[] Regs = new int[32];
 	public static Stack<Integer> instructionCache = new Stack<Integer>();
 
+	// MAIN METHOD
+	
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		
@@ -29,10 +31,10 @@ public class Driver {
 		System.out.println("Press any key to next cycle");
 		kb.nextLine();
 		}
+		
 		System.out.println("Complete.");
 			
 	}
-	///
 	
 	// METHODS WILL BE CALLED IN ORDER 
 	
@@ -162,7 +164,7 @@ public class Driver {
 		}
 	}
 	
-	private static void showMem() {
+	private static void showMem(){
 		for (int i = 0; i < 1024; i++) {
 			System.out.println(MainMem[i]+ " ");	
 			}
@@ -170,14 +172,14 @@ public class Driver {
 	
 	}
 	
-	public static void IF_stage() {
+	public static void IF_stage(){
 		// Read instruction from PC counter, it will increment
 		WRITE_IFID.Instruction = instructionCache.pop();
 		// Pass write value to read value
 		READ_IFID.Instruction = WRITE_IFID.Instruction;
 	}
 	
-	public static void ID_stage() {
+	public static void ID_stage(){
 		// Here you'll read an instruction from the READ version of IF/ID pipeline register
 		int Instruction = READ_IFID.Instruction;
 		//do the decoding 	
@@ -265,7 +267,7 @@ public class Driver {
 		
 	}
 
-	private static void EX_stage() {
+	private static void EX_stage(){
 		// Here you'll perform the requested instruction on the specific operands you read 
 		//out of the READ version of the IDEX pipeline register 
 		int Instruction = READ_IDEX.Instruction;
@@ -352,7 +354,7 @@ public class Driver {
 		
 	}
 	
-	private static void MEM_stage() {
+	private static void MEM_stage(){
 		//  MEM If the instruction is a lb, then use the address you calculated in the EX stage
 		//as an index into your Main Memory array and get the value that is there. 
 		int ValueFromMemory=0;
@@ -379,7 +381,7 @@ public class Driver {
 			WRITE_MEMWB.ValueFromMemory = ValueFromMemory;
 	}
 	
-	private static void WB_stage() {
+	private static void WB_stage(){
 	// Write to the registers based on information you read out of the READ version of MEM_WB.
 	
 		if(!READ_MEMWB.isItype){
@@ -426,7 +428,7 @@ public class Driver {
 		}	
 	}
 		
-	private static void Print_out_everything() {
+	private static void Print_out_everything(){
 		System.out.println("Registers:");
 		showRegs();
 		System.out.println();
@@ -434,7 +436,7 @@ public class Driver {
 		showPipeReg();
 	}
 
-	private static void Copy_write_to_read() {
+	private static void Copy_write_to_read(){
 		// 
 		
 		// COPY OVER IFID
