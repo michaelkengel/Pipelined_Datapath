@@ -12,7 +12,7 @@ public class Driver {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 
-		// INITIALIZE BLOCK
+		// INITIALIZE 
 		setIns();
 		setMem();
 		setRegs();
@@ -29,13 +29,15 @@ public class Driver {
 			MEM_stage(); 		
 			WB_stage(); 		
 			Print_out_everything(); 
+			System.out.println("\nCopying over data....");
 			Copy_write_to_read();
-			System.out.println("MEM AFTER COPY AND EXECUTE CYCLE");
+			System.out.println("Complete.\n");
 			Cycle++;
-			System.out.println("Press any key to next cycle");
+			System.out.println("Press Enter to cycle");
 			kb.nextLine();
 		}
-
+		
+		kb.close();
 		System.out.println("Complete.");
 	}
 
@@ -296,7 +298,6 @@ public class Driver {
 			case (0x20):{ // LOAD BYTE
 				// RT = RS(+Offest)
 				ALU_RESULT = ReadReg1Value + SEOoffset;
-				System.out.println("ALU HIT value: " + ALU_RESULT);
 				break;
 				}
 			case (0x28):{ // STORE BYTE
@@ -390,7 +391,7 @@ public class Driver {
 		showRegs();
 		System.out.println();
 		System.out.println("Pipeline Reg Values\n");
-		System.out.println("IFID WRITE");
+		System.out.println("IFID WRITE\n");
 		System.out.println("Instruction: " + Integer.toHexString(WRITE_IFID.Instruction));
 		System.out.println("IFID READ");
 		System.out.println("Instruction: " + Integer.toHexString(READ_IFID.Instruction));
