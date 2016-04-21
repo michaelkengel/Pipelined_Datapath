@@ -69,7 +69,7 @@ public class Driver {
 
 	private static void showRegs(){
 		for (int i = 0; i < 32; i++) {
-			System.out.println("Register " + i + " " + Regs[i]);
+			System.out.println("Register " + i + " " + Integer.toHexString(Regs[i]));
 		}
 	}
 
@@ -397,11 +397,11 @@ public class Driver {
 		System.out.println("Instruction: " + Integer.toHexString(READ_IFID.Instruction));
 		System.out.println();
 		System.out.println("IDEX WRITE");
-		System.out.println("Read reg 1 value: " + WRITE_IDEX.ReadReg1Value);
-		System.out.println("Read reg 2 value: " + WRITE_IDEX.ReadReg2Value);
-		System.out.println("SEOffset: " + WRITE_IDEX.SEOoffset);
+		System.out.println("Read reg 1 value: " + Integer.toHexString(WRITE_IDEX.ReadReg1Value));
+		System.out.println("Read reg 2 value: " + Integer.toHexString(WRITE_IDEX.ReadReg2Value));
+		System.out.println("SEOffset: " + Integer.toHexString(WRITE_IDEX.SEOoffset));
 		System.out.println("Write reg 16-20: " + WRITE_IDEX.Write_Reg20_16);
-		System.out.println("Write reg 11-25: " + WRITE_IDEX.Write_Reg15_11);
+		System.out.println("Write reg 11-15: " + WRITE_IDEX.Write_Reg15_11);
 		System.out.println("Function (Hex): " + Integer.toHexString(WRITE_IDEX.function));
 		System.out.println("Control");
 		System.out.println("RegDest: " + WRITE_IDEX.RegDest );
@@ -413,11 +413,11 @@ public class Driver {
 		System.out.println("MemToReg: " + WRITE_IDEX.MemToReg);
 		System.out.println();
 		System.out.println("IDEX READ");
-		System.out.println("Read reg 1 value: " + READ_IDEX.ReadReg1Value);
-		System.out.println("Read reg 2 value: " + READ_IDEX.ReadReg2Value);
-		System.out.println("SEOffset: " + READ_IDEX.SEOoffset);
+		System.out.println("Read reg 1 value: " + Integer.toHexString(READ_IDEX.ReadReg1Value));
+		System.out.println("Read reg 2 value: " + Integer.toHexString(READ_IDEX.ReadReg2Value));
+		System.out.println("SEOffset: " + Integer.toHexString(READ_IDEX.SEOoffset));
 		System.out.println("Write reg 16-20: " + READ_IDEX.Write_Reg20_16);
-		System.out.println("Write reg 11-25: " + READ_IDEX.Write_Reg15_11);
+		System.out.println("Write reg 11-15: " + READ_IDEX.Write_Reg15_11);
 		System.out.println("Function (Hex): " + Integer.toHexString(READ_IDEX.function));
 		System.out.println("Control");
 		System.out.println("RegDest: " + READ_IDEX.RegDest );
@@ -429,8 +429,8 @@ public class Driver {
 		System.out.println("MemToReg: " + READ_IDEX.MemToReg);
 		System.out.println();
 		System.out.println("EXMEM WRITE");
-		System.out.println("ALU Result: " + WRITE_EXMEM.ALUresult);
-		System.out.println("SWValuye: " + WRITE_EXMEM.SWValue);
+		System.out.println("ALU Result: " + Integer.toHexString(WRITE_EXMEM.ALUresult));
+		System.out.println("SWValuye: " + Integer.toHexString(WRITE_EXMEM.SWValue));
 		System.out.println("Write Reg Num: " + WRITE_EXMEM.WriteRegNum);
 		System.out.println("Control:");
 		System.out.println("MemRead: " + WRITE_EXMEM.MemRead );
@@ -439,8 +439,8 @@ public class Driver {
 		System.out.println("RegWrite: " + WRITE_EXMEM.RegWrite);
 		System.out.println();
 		System.out.println("EXMEM READ");	
-		System.out.println("ALU Result: " + READ_EXMEM.ALUresult);
-		System.out.println("SWValuye: " + READ_EXMEM.SWValue);
+		System.out.println("ALU Result: " + Integer.toHexString(READ_EXMEM.ALUresult));
+		System.out.println("SWValuye: " + Integer.toHexString(READ_EXMEM.SWValue));
 		System.out.println("Write Reg Num: " + READ_EXMEM.WriteRegNum);
 		System.out.println("Control:");
 		System.out.println("MemRead: " + READ_EXMEM.MemRead );
@@ -449,16 +449,16 @@ public class Driver {
 		System.out.println("RegWrite: " + READ_EXMEM.RegWrite);
 		System.out.println();
 		System.out.println("MEMWB WRITE");	
-		System.out.println("LWDataValue: " + WRITE_MEMWB.LWDataValue);
-		System.out.println("ALU RESULT: " + WRITE_MEMWB.ALU_Result);
+		System.out.println("LWDataValue: " + Integer.toHexString(WRITE_MEMWB.LWDataValue));
+		System.out.println("ALU RESULT: " + Integer.toHexString(WRITE_MEMWB.ALU_Result));
 		System.out.println("WriteRegNumber: " + WRITE_MEMWB.WriteRegNumber);
 		System.out.println("Control:");
 		System.out.println("MemToReg: " + WRITE_MEMWB.MemToReg);
 		System.out.println("RegWrite: " + WRITE_MEMWB.RegWrite);
 		System.out.println();
 		System.out.println("MEMWB READ");
-		System.out.println("LWDataValue: " + READ_MEMWB.LWDataValue);
-		System.out.println("ALU RESULT: " + READ_MEMWB.ALU_Result);
+		System.out.println("LWDataValue: " + Integer.toHexString(READ_MEMWB.LWDataValue));
+		System.out.println("ALU RESULT: " + Integer.toHexString(READ_MEMWB.ALU_Result));
 		System.out.println("WriteRegNumber: " + READ_MEMWB.WriteRegNumber);
 		System.out.println("Control:");
 		System.out.println("MemToReg: " + READ_MEMWB.MemToReg);
